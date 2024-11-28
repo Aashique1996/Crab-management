@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lachumani’s Crab Management</title>
+</head>
+<body>
+    <header>
+        <h1>Lachumani’s Crab Management</h1>
+        <p id="dateTime"></p>
+        <nav>
+            <button onclick="showSection('dashboard')">Dashboard</button>
+            <button onclick="showSection('addData')">Add Data</button>
+            <button onclick="showSection('reports')">Reports</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <img src="mud_crab.jpg" alt="Mud Crab" class="mud-crab-img">
+            <div class="data-display">
+                <h3>Current Day Data</h3>
+                <div id="currentDayData"></div>
+                <h3>Previous Day Data</h3>
+                <div id="previousDayData"></div>
+            </div>
+        </section>
+
+        <!-- Add Data Section -->
+        <section id="addData" class="section">
+            <h2>Add Data</h2>
+            <form id="dataForm">
+                <h3>Water Parameters</h3>
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" id="temperature" required>
+                <label for="salinity">Salinity (ppt):</label>
+                <input type="number" id="salinity" required>
+                <label for="ph">pH:</label>
+                <input type="number" id="ph" step="0.1" required>
+                <label for="dissolvedOxygen">Dissolved Oxygen (mg/L):</label>
+                <input type="number" id="dissolvedOxygen" required>
+
+                <h3>Crab Details</h3>
+                <label for="boxNumber">Box Number:</label>
+                <input type="number" id="boxNumber" required>
+                <label for="species">Species:</label>
+                <input type="text" id="species" required>
+                <label for="weight">Weight (g):</label>
+                <input type="number" id="weight" required>
+                <label for="deaths">Deaths:</label>
+                <input type="number" id="deaths">
+                <label for="diseases">Diseases:</label>
+                <input type="text" id="diseases">
+
+                <h3>Buying Details</h3>
+                <label for="buyingDate">Buying Date:</label>
+                <input type="date" id="buyingDate" required>
+                <label for="buyingWeight">Buying Weight (g):</label>
+                <input type="number" id="buyingWeight" required>
+                <label for="buyingPrice">Buying Price ($):</label>
+                <input type="number" id="buyingPrice" step="0.01" required>
+
+                <h3>Selling Details</h3>
+                <label for="sellingDate">Selling Date:</label>
+                <input type="date" id="sellingDate">
+                <label for="sellingWeight">Selling Weight (g):</label>
+                <input type="number" id="sellingWeight">
+                <label for="sellingPrice">Selling Price ($):</label>
+                <input type="number" id="sellingPrice" step="0.01">
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+            <h2>Reports</h2>
+            <h3>Profit Summary</h3>
+            <p id="profitSummary"></p>
+            <h3>Buying and Selling Trends</h3>
+            <canvas id="priceTrendChart"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
